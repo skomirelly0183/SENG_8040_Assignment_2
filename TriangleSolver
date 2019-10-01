@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Assignment02
+{
+    public static class TriangleSolver
+    {
+        public static bool AnalyzeIfTraingleCanForm(int a, int b, int c)
+        {
+            // check condition 
+            if (a + b <= c || a + c <= b ||
+                                b + c <= a)
+                return false;
+            else
+                return true;
+        }
+
+        public static string AnalyzeTypeOfTriangle(int sidea, int sideb, int sidec)
+        {
+            if (sidea == sideb && sideb == sidec)
+            {
+                Console.Write("B. This is an equilateral triangle.\n");
+                return "Equilateral Triangle";
+            }
+            else if (sidea == sideb || sidea == sidec || sideb == sidec)
+            {
+                Console.Write("B. This is an isosceles triangle.\n");
+                return "Isosceles Triangle";
+            }
+            else
+            {
+                Console.Write("B. This is a scalene triangle.\n");
+                return "Scalene Triangle";
+            }
+        }
+    }
+}
+
