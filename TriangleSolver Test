@@ -1,0 +1,110 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Assignment02;
+using NUnit.Framework;
+
+namespace Assignment02.Tests
+{
+    [TestFixture]
+    public class TraingleSolverTest
+    {
+        [Test]
+        public void CheckIfTriangleCanBeFormed_Success()
+        {
+            // Arrange
+            int x = 10;
+            int y = 10;
+            int z = 8;
+
+            // Act
+            var canBeFormed = TriangleSolver.AnalyzeIfTraingleCanForm(x, y, z);
+
+            // Assert
+            Assert.IsTrue(canBeFormed);
+        }
+
+        [Test]
+        public void CheckIfTriangleCannotBeFormed_Success()
+        {
+            // Arrange
+            int x = 10;
+            int y = 10;
+            int z = 100;
+
+            // Act
+            var canBeFormed = TriangleSolver.AnalyzeIfTraingleCanForm(x, y, z);
+
+            // Assert
+            Assert.IsTrue(!canBeFormed);
+        }
+
+        [Test]
+        public void CheckIfTriangleIsosceles_Success()
+        {
+            // Arrange
+            int x = 10;
+            int y = 10;
+            int z = 8;
+            string expectedType = "Isosceles Triangle";
+
+            // Act
+            var actualType = TriangleSolver.AnalyzeTypeOfTriangle(x, y, z);
+
+            // Assert
+            Assert.AreEqual(actualType, expectedType);
+        }
+
+        [Test]
+        public void CheckIfTriangleScalene_Success()
+        {
+            // Arrange
+            int x = 45;
+            int y = 75;
+            int z = 60;
+            string expectedType = "Scalene Triangle";
+
+            // Act
+            var actualType = TriangleSolver.AnalyzeTypeOfTriangle(x, y, z);
+
+            // Assert
+            Assert.AreEqual(actualType, expectedType);
+        }
+
+        [Test]
+        public void CheckIfTriangleEquilateral_Success()
+        {
+            // Arrange
+            int x = 10;
+            int y = 10;
+            int z = 10;
+            string expectedType = "Equilateral Triangle";
+
+            // Act
+            var actualType = TriangleSolver.AnalyzeTypeOfTriangle(x, y, z);
+
+            // Assert
+            Assert.AreEqual(actualType, expectedType);
+        }
+
+        [Test]
+        public void CheckIfTriangleNotIsosceles_Success()
+        {
+            // Arrange
+            int x = 10;
+            int y = 10;
+            int z = 10;
+            string expectedType = "Isosceles Triangle";
+
+            // Act
+            var actualType = TriangleSolver.AnalyzeTypeOfTriangle(x, y, z);
+
+            // Assert
+            Assert.AreNotEqual(actualType, expectedType);
+        }
+
+    }
+
+}
